@@ -40,6 +40,7 @@ const deleteContact = (req, res) => {
   res.status(200).json({ message: `Delete contact for ${req.params.id}` });
 };
 
+// expose methods to be used in Routes file
 module.exports = {
   getContacts,
   createContact,

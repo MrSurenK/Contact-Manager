@@ -14,10 +14,8 @@ const {
 } = require("../controllers/contactController");
 
 // Set up "get" router using the route module
-router.route("/").get(getContact);
-
-// Set up "post" router using the route module
-router.route("/").post(createContact);
+// post and get contact method can be combined as they have similar endpoints
+router.route("/").get(getContact).post(createContact);
 
 // Set up route to get an individual contact
 router.route("/:id").get(getContact);
