@@ -18,6 +18,7 @@ const createContact = (req, res) => {
   // Error handling to prevent empty responses from being reflected
   if (!name || !email || !phone) {
     res.status(400);
+    // Create new error object
     throw new Error("All fields are mandatory");
   }
   res.status(200).json({ message: "Create contact" });
