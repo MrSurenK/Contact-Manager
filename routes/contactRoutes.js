@@ -15,11 +15,12 @@ const {
 
 // Set up "get" router using the route module
 // post and get contact method can be combined as they have similar endpoints
-router.route("/").get(getContact).post(createContact);
+router.route("/").get(getContacts).post(createContact);
 
 // Set up route to get an individual contact
 // Set up "put" router using the route module
 // Set up "delete" router using the route module
+// combine the methods as they share the same endpoints
 router.route("/:id").get(getContact).put(updateContact).delete(deleteContact);
 
 // Export the router set up above to be used in server.js
