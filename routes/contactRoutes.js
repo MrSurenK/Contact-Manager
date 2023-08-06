@@ -18,13 +18,9 @@ const {
 router.route("/").get(getContact).post(createContact);
 
 // Set up route to get an individual contact
-router.route("/:id").get(getContact);
-
 // Set up "put" router using the route module
-router.route("/:id").put(updateContact);
-
 // Set up "delete" router using the route module
-router.route("/:id").delete(deleteContact);
+router.route("/:id").get(getContact).put(updateContact).delete(deleteContact);
 
 // Export the router set up above to be used in server.js
 module.exports = router;
