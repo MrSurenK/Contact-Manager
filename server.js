@@ -3,8 +3,12 @@ const express = require("express");
 const errorHandler = require("./middleware/errorHandler"); //auto imported when called below
 // import dotenv
 const dotenv = require("dotenv").config();
+// import connectDb
+const connectDb = require("./config/dbConnection");
 
 // -- Server setup --//
+// Call connectDb from config file
+connectDb();
 // Call express server through variable app
 const app = express();
 
