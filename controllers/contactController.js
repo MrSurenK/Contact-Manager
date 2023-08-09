@@ -1,18 +1,21 @@
 // API methods
 
+// import express-async-handler module
+const asyncHandler = require("express-async-handler");
+
 //@desc Get all contacts
 // @route GET /api/contacts
 //@access public
 
-const getContacts = (req, res) => {
+const getContacts = asyncHandler((req, res) => {
   res.status(200).json({ message: "Get all contacts" });
-};
+});
 
 //@desc Create new contact
 // @route POST /api/contacts
 //@access public
 
-const createContact = (req, res) => {
+const createContact = asyncHandler(async (req, res) => {
   console.log("The request body is :", req.body);
   const { name, email, phone } = req.body;
   // Error handling to prevent empty responses from being reflected
@@ -22,31 +25,31 @@ const createContact = (req, res) => {
     throw new Error("All fields are mandatory");
   }
   res.status(200).json({ message: "Create contact" });
-};
+});
 
 //@desc Get a contact
 // @route POST /api/contacts/:id
 //@access public
 
-const getContact = (req, res) => {
+const getContact = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Get contact for ${req.params.id}` });
-};
+});
 
 //@desc Update contact
 // @route POST /api/contacts/:id
 //@access public
 
-const updateContact = (req, res) => {
+const updateContact = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Update contact for ${req.params.id}` });
-};
+});
 
 //@desc Delete a contact
 // @route POST /api/contacts/:id
 //@access public
 
-const deleteContact = (req, res) => {
+const deleteContact = asyncHandler(async (req, res) => {
   res.status(200).json({ message: `Delete contact for ${req.params.id}` });
-};
+});
 
 // expose methods to be used in Routes file
 module.exports = {
