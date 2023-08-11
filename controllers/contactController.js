@@ -57,6 +57,7 @@ const getContact = asyncHandler(async (req, res) => {
 //@access public
 
 const updateContact = asyncHandler(async (req, res) => {
+  // Fetch the contact
   const contact = await Contact.findById(req.params.id);
   if (!contact) {
     res.status(404);
@@ -64,9 +65,11 @@ const updateContact = asyncHandler(async (req, res) => {
   }
   res.status(200).json(contact);
 
+  // update the contact
   const updatedContact = await Contact.findByIdAndUpdate(
     req.params.id,
     req.body,
+    // query option new:true
     { new: true }
   );
 
@@ -78,12 +81,11 @@ const updateContact = asyncHandler(async (req, res) => {
 
 const deleteContact = asyncHandler(async (req, res) => {
   // Fetch contact in database
-  const contact = await Contact.findById(req.params.id);
+  const contact = await Contact.findByIdAndDelete(req.params.id);
   if (!contact) {
     res.status(404);
     throw new Error("Contact not found");
   }
-  await Contact.remove();
   res.status(200).json(contact);
 });
 
