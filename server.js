@@ -21,6 +21,8 @@ app.use(express.json());
 // set up the get route for the API using the "use" middlewear to define contact routes
 // import the folder containing the contact routes
 app.use("/api/contacts", require("./routes/contactRoutes"));
+// Router for authentication
+app.use("/api/users", require("./routes/userRoutes"));
 
 // Use custom error handler middleware created
 app.use(errorHandler);
