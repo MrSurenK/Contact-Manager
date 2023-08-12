@@ -1,3 +1,5 @@
+const asyncHandler = require("express-async-handler");
+
 //@desc Register a user
 //POST/api/users/register
 //@access public (anyone can access endpoint)
