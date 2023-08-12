@@ -77,7 +77,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
 //@desc Get current user
 //POST/api/users/current
-//@access private (Only logged in user get get this information))
+//@access private (Require access token to get user info))
 const currentUser = asyncHandler(async (req, res) => {
   res.json({ message: "Current user information" });
 });
