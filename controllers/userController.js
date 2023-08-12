@@ -4,6 +4,19 @@ const asyncHandler = require("express-async-handler");
 //POST/api/users/register
 //@access public (anyone can access endpoint)
 const registerUser = asyncHandler(async (req, res) => {
+  // Destructure the body key values required
+  const { username, email, password } = req.body;
+  //Check if any field are empty and throw an error
+  if (!username || !email || !password) {
+    res.status(400);
+    throw new Error("All field must be filled");
+  }
+  // Check if email has been taken
+  const userAvailable = await user.findOne({ email });
+  if (userAvailable) {
+    res.status(400);
+    throw new Error("User already registerd");
+  }
   res.json({ message: "Register the user" });
 });
 
