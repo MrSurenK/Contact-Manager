@@ -3,6 +3,12 @@ const mongoose = require("mongoose");
 // Schema will have all the values in contact
 const contactSchema = mongoose.Schema(
   {
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      // reference of the model (User)
+      ref: "User",
+    },
     name: {
       type: String,
       required: [true, "Please add the contact name"],

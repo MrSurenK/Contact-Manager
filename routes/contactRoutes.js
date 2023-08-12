@@ -12,7 +12,10 @@ const {
   updateContact,
   deleteContact,
 } = require("../controllers/contactController");
+const validateToken = require("../middleware/validateTokenHandler");
 
+//This will use validateToken middleware on all of the routes (Middleware declared globally)
+router.use(validateToken);
 // Set up "get" router using the route module
 // post and get contact method can be combined as they have similar endpoints
 router.route("/").get(getContacts).post(createContact);
