@@ -31,5 +31,5 @@ Contact Manager application built using Express.js framework
 > Database
 
 ```
-   - MongDB Atlas
+   - MongoDB Atlas
 ```
