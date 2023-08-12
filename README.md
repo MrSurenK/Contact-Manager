@@ -1,5 +1,5 @@
 # Contact-Manager
-Contact Manager application built using Express.js framework 
+Contact Manager back-end application built using Express.js framework 
 
 >Features
 ```
