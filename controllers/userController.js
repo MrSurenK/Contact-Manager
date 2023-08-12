@@ -79,7 +79,8 @@ const loginUser = asyncHandler(async (req, res) => {
 //POST/api/users/current
 //@access private (Require access token to get user info))
 const currentUser = asyncHandler(async (req, res) => {
-  res.json({ message: "Current user information" });
+  //In validate information we attached the decoded user information onto req.user
+  res.json(req.user);
 });
 
 module.exports = { registerUser, loginUser, currentUser };
